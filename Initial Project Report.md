@@ -7,7 +7,7 @@
 
 ## POSTMAN Documentation
 
-- **Link:** (https://documenter.getpostman.com/view/29752902/2s9YsT6oFd)
+- **Link:** https://documenter.getpostman.com/view/29752902/2s9YsT6oFd
 
 ## Project Details
 
