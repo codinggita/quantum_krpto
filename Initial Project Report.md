@@ -5,6 +5,10 @@
 - **Name:** Sukhad Sharma
 - **Registration Number:** 12110106
 
+## POSTMAN Documentation
+
+- **Link:** (https://documenter.getpostman.com/view/29752902/2s9YsT6oFd)
+
 ## Project Details
 
 - **Project Name:** QuantumKrpto
