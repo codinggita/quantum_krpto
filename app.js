@@ -115,6 +115,27 @@ app.delete("/api/nfts/:id", (req, res) => {
   res.json({ message: `Deleted NFT ${nftId}` });
 });
 
+// PATCH to update specific details of NFT by ID
+app.patch("/api/nfts/:id", (req, res) => {
+  const nftId = req.params.id;
+  const updatedFields = req.body;
+
+  // Find the index of the NFT in the array
+  const index = nftList.findIndex((nft) => nft.id === nftId);
+
+  if (index !== -1) {
+    // Update the specified fields of the NFT at the found index
+    Object.assign(nftList[index], updatedFields);
+
+    res.json({
+      message: `Updated specific details of NFT ${nftId}`,
+      updatedNft: nftList[index],
+    });
+  } else {
+    res.status(404).json({ message: "NFT not found" });
+  }
+});
+
 // Quantum Portfolio --------------------------------------------------------------------------------------------
 
 let portfolios = [
@@ -225,10 +246,6 @@ app.delete("/api/portfolios/:id", (req, res) => {
   res.json({ message: `Delete portfolio ${portfolioId}` });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
-
 // Bit Buzz --------------------------------------------------------------------------------------------
 
 let bitBuzzArticles = [
@@ -317,6 +334,29 @@ app.delete("/api/bit-buzz/:id", (req, res) => {
   res.json({ message: `Deleted Bit Buzz article ${articleId}` });
 });
 
+// PATCH to update specific details of Bit Buzz article by ID
+app.patch("/api/bit-buzz/:id", (req, res) => {
+  const articleId = req.params.id;
+  const updatedFields = req.body;
+
+  // Find the index of the article in the array
+  const index = bitBuzzArticles.findIndex(
+    (article) => article.id === articleId
+  );
+
+  if (index !== -1) {
+    // Update the specified fields of the article at the found index
+    Object.assign(bitBuzzArticles[index], updatedFields);
+
+    res.json({
+      message: `Updated specific details of Bit Buzz article ${articleId}`,
+      updatedArticle: bitBuzzArticles[index],
+    });
+  } else {
+    res.status(404).json({ message: "Bit Buzz article not found" });
+  }
+});
+
 // Quantum Forum --------------------------------------------------------------------------------------------
 
 let quantumForumPosts = [
@@ -394,4 +434,30 @@ app.delete("/api/quantum-forum/:id", (req, res) => {
   quantumForumPosts = quantumForumPosts.filter((post) => post.id !== postId);
 
   res.json({ message: `Deleted Quantum Forum post ${postId}` });
+});
+
+// PATCH to update specific details of Quantum Forum post by ID
+app.patch("/api/quantum-forum/:id", (req, res) => {
+  const postId = req.params.id;
+  const updatedFields = req.body;
+
+  // Find the index of the post in the array
+  const index = quantumForumPosts.findIndex((post) => post.id === postId);
+
+  if (index !== -1) {
+    // Update the specified fields of the post at the found index
+    Object.assign(quantumForumPosts[index], updatedFields);
+
+    res.json({
+      message: `Updated specific details of Quantum Forum post ${postId}`,
+      updatedPost: quantumForumPosts[index],
+    });
+  } else {
+    res.status(404).json({ message: "Quantum Forum post not found" });
+  }
+});
+
+// ----------------------------------------------------------------------------------------------------
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
