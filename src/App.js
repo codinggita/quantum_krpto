@@ -4,6 +4,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import QuantumHub from "./components/QuantumHub";
 import Error404 from "./components/Error404";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 function App() {
   const appStyle = {
@@ -14,10 +16,11 @@ function App() {
   return (
     <div className="App" style={appStyle}>
       <Router>
-        <Navbar />
         <Routes>
           <Route path="/" element={<QuantumHub />} />
           <Route path="*" element={<Error404 />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </Router>
     </div>

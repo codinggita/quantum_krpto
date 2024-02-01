@@ -3,6 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const rainbowGradient =
@@ -43,9 +44,18 @@ export default function Navbar() {
   };
 
   const [activeTab, setActiveTab] = useState("quantumHub");
+  const navigate = useNavigate();
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
+  };
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
+  const handleSignUpClick = () => {
+    navigate("/signup");
   };
 
   return (
@@ -63,11 +73,17 @@ export default function Navbar() {
             <Button
               color="secondary"
               variant="outlined"
+              onClick={handleSignUpClick}
               style={{ ...buttonStyle, marginRight: "10px" }}
             >
               Sign Up
             </Button>
-            <Button color="secondary" variant="contained" style={buttonStyle}>
+            <Button
+              color="secondary"
+              variant="contained"
+              onClick={handleLoginClick}
+              style={buttonStyle}
+            >
               Login
             </Button>
           </div>

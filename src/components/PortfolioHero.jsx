@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import PortfolioPic from "../assets/Portfolio Pic.png";
 
 const PortfolioHero = () => {
   const containerStyle = {
@@ -9,6 +10,7 @@ const PortfolioHero = () => {
     padding: "20px",
     marginLeft: "5vw",
     marginRight: "5vw",
+    marginTop: "-10vh",
   };
 
   const leftContentStyle = {
@@ -36,14 +38,23 @@ const PortfolioHero = () => {
   };
 
   const buttonStyle = {
-    backgroundColor: "#87CEEB", // Skyblue color
-    color: "#000000", // Black text
+    backgroundColor: "#87CEEB",
+    color: "#000000",
+    fontWeight: "bold",
     marginTop: "20px",
     borderRadius: "20px",
   };
 
+  const imageStyle = {
+    flex: "1",
+    marginRight: "15vw",
+  };
+
   return (
     <div style={containerStyle}>
+      <div style={imageStyle}>
+        <img src={PortfolioPic} alt="Portfolio" style={{ width: "100%" }} />
+      </div>
       <div style={leftContentStyle}>
         <div style={smallTextStyle}>PORTFOLIO</div>
         <div style={largeTextStyle}>
@@ -58,7 +69,6 @@ const PortfolioHero = () => {
           View Plans
         </Button>
       </div>
-      {/* Add your image component for the right side */}
     </div>
   );
 };
