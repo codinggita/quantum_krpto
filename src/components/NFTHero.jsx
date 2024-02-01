@@ -7,7 +7,7 @@ const NFTHero = () => {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "20px",
-    marginLeft: "5vw",
+    marginLeft: "10vw",
     marginRight: "5vw",
   };
 
@@ -32,6 +32,7 @@ const NFTHero = () => {
   const exploreNowButtonStyle = {
     background: "#87CEEB",
     color: "#000000",
+    fontWeight: "bold",
     padding: "10px 20px",
     fontSize: "16px",
     marginRight: "20px",
@@ -44,6 +45,7 @@ const NFTHero = () => {
   const rareFindsButtonStyle = {
     background: "transparent",
     color: "#FFFFFF",
+    fontWeight: "bold",
     padding: "10px 20px",
     fontSize: "16px",
     borderRadius: "20px",
