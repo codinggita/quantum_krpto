@@ -18,12 +18,14 @@ const QuantumForum = () => {
     fontWeight: "bold",
     textTransform: "uppercase",
     color: "rgba(255, 255, 255, 0.5)",
+    marginLeft: "12vw",
   };
 
   const bigBoldTextStyle = {
     fontSize: "50px",
     fontWeight: "bold",
     marginTop: "10px",
+    marginLeft: "12vw",
   };
 
   const rainbowTextStyle = {
@@ -108,7 +110,7 @@ const QuantumForum = () => {
       <div style={bigBoldTextStyle}>
         Join the <span style={rainbowTextStyle}>Quantum Community</span>
       </div>
-      <div style={{ fontSize: "40px", fontWeight: "Bold" }}>
+      <div style={{ fontSize: "40px", fontWeight: "Bold", marginLeft: "12vw" }}>
         <span style={blueTextStyle}>Discuss. </span>
         <span style={yellowTextStyle}>Learn. </span>
         <span style={redTextStyle}>Thrive.</span>
@@ -127,7 +129,11 @@ const QuantumForum = () => {
         </div>
         <div>
           <div style={avatarStyle2}>
-            <img src="" alt="User Avatar" style={imgStyle} />
+            <img
+              src="https://github.com/SCORLEOs773/quantum_krypto/blob/main/src/assets/qk%20logo.png?raw=true"
+              alt="User Avatar"
+              style={imgStyle}
+            />
           </div>
           <div style={textBoxStyle2}>
             Congrats on the rare find! What's your strategy?
@@ -144,18 +150,20 @@ const QuantumForum = () => {
               style={imgStyle}
             />
           </div>
-          <div style={textBoxStyle1}>Just secured a Rare NFT!🚀</div>
+          <div style={textBoxStyle1}>
+            Any tips on portfolio diversification?
+          </div>
         </div>
         <div>
           <div style={avatarStyle2}>
             <img
-              src="path_to_your_image2.jpg"
+              src="https://github.com/SCORLEOs773/quantum_krypto/blob/main/src/assets/qk%20logo.png?raw=true"
               alt="User Avatar"
               style={imgStyle}
             />
           </div>
           <div style={textBoxStyle2}>
-            Congrats on the rare find! What's your strategy?
+            Diversify with a mix of stable and growth assets.
           </div>
         </div>
       </div>
@@ -168,18 +176,20 @@ const QuantumForum = () => {
               style={imgStyle}
             />
           </div>
-          <div style={textBoxStyle1}>Just secured a Rare NFT!🚀</div>
+          <div style={textBoxStyle1}>
+            Exciting times! What updates are you most looking forward to?
+          </div>
         </div>
         <div>
           <div style={avatarStyle2}>
             <img
-              src="path_to_your_image2.jpg"
+              src="https://github.com/SCORLEOs773/quantum_krypto/blob/main/src/assets/qk%20logo.png?raw=true"
               alt="User Avatar"
               style={imgStyle}
             />
           </div>
           <div style={textBoxStyle2}>
-            Congrats on the rare find! What's your strategy?
+            We've got some groundbreaking features in the pipeline. Stay tuned!
           </div>
         </div>
       </div>
