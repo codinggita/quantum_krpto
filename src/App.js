@@ -18,7 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Open />} />
-          <Route path="/home" element={<QuantumHub />} />
+          <Route path="/quantumhub" element={<QuantumHub />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<Error404 />} />
