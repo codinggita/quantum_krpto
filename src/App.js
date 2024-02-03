@@ -18,9 +18,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<QuantumHub />} />
-          <Route path="*" element={<Error404 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
     </div>
