@@ -6,6 +6,7 @@ import CallForAction from "./CallForAction";
 import BitBuzz from "./BitBuzz";
 import QuantumForum from "./QuantumForum";
 import Testimonials from "./Testimonials";
+import Footer from "./Footer";
 // import Glowball from "./Glowball";
 
 export default function QuantumHub() {
@@ -20,6 +21,7 @@ export default function QuantumHub() {
       <BitBuzz />
       <QuantumForum />
       <Testimonials />
+      <Footer />
     </div>
   );
 }

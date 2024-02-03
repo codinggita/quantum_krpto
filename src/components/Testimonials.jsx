@@ -17,7 +17,9 @@ const Testimonials = () => {
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua."
             </div>
           </div>
         </div>
@@ -28,7 +30,9 @@ const Testimonials = () => {
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua."
             </div>
           </div>
         </div>
@@ -39,7 +43,9 @@ const Testimonials = () => {
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua."
             </div>
           </div>
         </div>
@@ -50,7 +56,9 @@ const Testimonials = () => {
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua."
             </div>
           </div>
         </div>
