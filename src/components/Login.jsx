@@ -16,12 +16,29 @@ const CustomContainer = styled(Container)({
 });
 
 const CustomPaper = styled(Paper)({
+  position: "relative",
   width: "500px",
   padding: "30px",
   borderRadius: "20px",
   background: "#87CEEB",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
   textAlign: "center",
+
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundImage:
+      "url('https://github.com/SCORLEOs773/quantum_krypto/blob/main/src/assets/qk%20logo.png?raw=true')",
+    opacity: 0.2,
+    backgroundRepeat: "repeat",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
+    pointerEvents: "none",
+  },
 });
 
 const CustomTextField = styled(TextField)({
