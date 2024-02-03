@@ -1,26 +1,28 @@
 import React, { useRef, useState } from "react";
 import ReactPlayer from "react-player";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Vid from "../assets/open cut.mp4";
 
 export default function Open() {
   const playerRef = useRef(null);
-  const history = useHistory();
+  const navigate = useNavigate();
   const [videoEnded, setVideoEnded] = useState(false);
 
   const handleVideoEnd = () => {
     setVideoEnded(true);
-    history.push("/");
+    navigate("/home");
   };
 
   return (
     <div>
       <ReactPlayer
         ref={playerRef}
-        url="your-video-url.mp4"
+        url={Vid}
         width="100%"
         height="100%"
         playing={!videoEnded}
-        controls
+        controls={false}
+        muted={true}
         onEnded={handleVideoEnd}
       />
     </div>
