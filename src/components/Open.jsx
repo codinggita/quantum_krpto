@@ -10,7 +10,7 @@ export default function Open() {
 
   const handleVideoEnd = () => {
     setVideoEnded(true);
-    navigate("/home");
+    navigate("/quantumhub");
   };
 
   return (
