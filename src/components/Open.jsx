@@ -28,7 +28,7 @@ export default function Open() {
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
-  }, []);
+  });
 
   return (
     <div style={{ position: "relative", overflow: "hidden" }}>
