@@ -46,7 +46,6 @@ const Navbar = ({ activeTab }) => {
   const navigate = useNavigate();
 
   const handleTabChange = (event, newValue) => {
-    console.log(newValue); // Check if the correct tab value is logged
     navigate("/" + newValue);
   };
 

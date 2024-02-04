@@ -5,7 +5,7 @@ import Footer from "./Footer";
 export default function QuantumForum() {
   return (
     <div>
-      <Navbar activeTab="nft-bazaar" />
+      <Navbar activeTab="quantum-forum" />
       <br />
       <br />
       <br />
