@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+const Navbar = ({ activeTab }) => {
   const rainbowGradient =
     "linear-gradient(45deg, #FF0000, #FF9900, #FFFF00, #00FF00, #0000FF, #9900FF)";
 
@@ -43,11 +43,10 @@ export default function Navbar() {
     color: "#ffffff",
   };
 
-  const [activeTab, setActiveTab] = useState("quantumHub");
   const navigate = useNavigate();
 
   const handleTabChange = (event, newValue) => {
-    setActiveTab(newValue);
+    navigate("/" + newValue);
   };
 
   const handleLoginClick = () => {
@@ -95,14 +94,14 @@ export default function Navbar() {
           onChange={handleTabChange}
         >
           <Tab
-            value="quantumHub"
+            value="quantum-hub"
             label="Quantum Hub"
-            style={activeTab === "quantumHub" ? activeTabStyle : tabStyle}
+            style={activeTab === "quantum-hub" ? activeTabStyle : tabStyle}
           />
           <Tab
-            value="nftBazaar"
+            value="nft-bazaar"
             label="NFT Bazaar"
-            style={activeTab === "nftBazaar" ? activeTabStyle : tabStyle}
+            style={activeTab === "nft-bazaar" ? activeTabStyle : tabStyle}
           />
           <Tab
             value="portfolio"
@@ -110,17 +109,19 @@ export default function Navbar() {
             style={activeTab === "portfolio" ? activeTabStyle : tabStyle}
           />
           <Tab
-            value="bitBuzz"
+            value="bit-buzz"
             label="Bit Buzz"
-            style={activeTab === "bitBuzz" ? activeTabStyle : tabStyle}
+            style={activeTab === "bit-buzz" ? activeTabStyle : tabStyle}
           />
           <Tab
-            value="quantumForum"
+            value="quantum-forum"
             label="Quantum Forum"
-            style={activeTab === "quantumForum" ? activeTabStyle : tabStyle}
+            style={activeTab === "quantum-forum" ? activeTabStyle : tabStyle}
           />
         </Tabs>
       </Box>
     </div>
   );
-}
+};
+
+export default Navbar;

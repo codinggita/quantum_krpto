@@ -64,7 +64,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    navigate("/");
+    navigate("/quantum-hub");
   };
 
   const handleGoogleSignUp = () => {

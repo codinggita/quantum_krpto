@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-export default function BitBuzz() {
+export default function Portfolio() {
   return (
     <div>
       <Navbar activeTab="nft-bazaar" />
