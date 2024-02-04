@@ -5,7 +5,8 @@ import Footer from "./Footer";
 export default function BitBuzz() {
   return (
     <div>
-      <Navbar activeTab="nft-bazaar" />
+      <Navbar activeTab="bit-buzz" />
+      <br />
       <br />
       <br />
       <br />

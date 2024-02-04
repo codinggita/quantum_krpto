@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 const About = () => {
   return (
     <>
-      <Navbar />
+      <Navbar activeTab="about" />
       <Container
         style={{
           display: "flex",
