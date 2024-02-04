@@ -1,5 +1,5 @@
 import React from "react";
-import gifImage from "../../assets/NFT gif.gif";
+import gifImage from "../assets/NFT gif.gif";
 
 const NFTHero = () => {
   const containerStyle = {

@@ -46,6 +46,7 @@ const Navbar = ({ activeTab }) => {
   const navigate = useNavigate();
 
   const handleTabChange = (event, newValue) => {
+    console.log(newValue); // Check if the correct tab value is logged
     navigate("/" + newValue);
   };
 
@@ -117,6 +118,11 @@ const Navbar = ({ activeTab }) => {
             value="quantum-forum"
             label="Quantum Forum"
             style={activeTab === "quantum-forum" ? activeTabStyle : tabStyle}
+          />
+          <Tab
+            value="about"
+            label="About"
+            style={activeTab === "about" ? activeTabStyle : tabStyle}
           />
         </Tabs>
       </Box>

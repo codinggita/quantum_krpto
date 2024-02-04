@@ -10,6 +10,7 @@ import NFTBazaar from "./components/NFTBazaar";
 import BitBuzz from "./components/BitBuzz";
 import Portfolio from "./components/Portfolio";
 import QuantumForum from "./components/QuantumForum";
+import About from "./components/About";
 
 function App() {
   const appStyle = {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/bit-buzz" element={<BitBuzz />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/quantum-forum" element={<QuantumForum />} />
+          <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<Error404 />} />

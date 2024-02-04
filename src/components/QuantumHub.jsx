@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
-import NFTHero from "./QuantumHubComponents/NFTHero";
-import PortfolioHero from "./QuantumHubComponents/PortfolioHero";
-import CallForAction from "./QuantumHubComponents/CallForAction";
-import BitBuzzHero from "./QuantumHubComponents/BitBuzzHero";
-import QuantumForumHero from "./QuantumHubComponents/QuantumForumHero";
-import Testimonials from "./QuantumHubComponents/Testimonials";
+import NFTHero from "./NFTHero";
+import PortfolioHero from "./PortfolioHero";
+import CallForAction from "./CallForAction";
+import BitBuzzHero from "./BitBuzzHero";
+import QuantumForumHero from "./QuantumForumHero";
+import Testimonials from "./Testimonials";
 import Footer from "./Footer";
 // import Glowball from "./Glowball";
 
