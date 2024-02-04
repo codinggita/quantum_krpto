@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import PortfolioPic from "../assets/Portfolio Pic.png";
+import PortfolioPic from "../../assets/Portfolio Pic.png";
 
 const PortfolioHero = () => {
   const containerStyle = {

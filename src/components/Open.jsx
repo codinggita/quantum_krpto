@@ -10,12 +10,12 @@ export default function Open() {
 
   const handleVideoEnd = () => {
     setVideoEnded(true);
-    navigate("/quantumhub");
+    navigate("/quantum-hub");
   };
 
   const handleSkip = () => {
     setVideoEnded(true);
-    navigate("/quantumhub");
+    navigate("/quantum-hub");
   };
 
   const handleKeyPress = (event) => {
