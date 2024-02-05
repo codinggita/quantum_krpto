@@ -98,6 +98,7 @@ export default function BottomSlider() {
                   height: "50vh",
                   margin: "0 10px",
                   color: "white",
+                  borderRadius: "20px",
                 }}
               >
                 {/* Card Image */}

@@ -4,35 +4,44 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Image from "../assets/qk logo.png";
 
 const About = () => {
+  const paperStyle = {
+    padding: 24,
+    backgroundColor: "#1c1c1c",
+    color: "#ffffff",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundImage: `url(${Image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+
   return (
     <>
       <Navbar activeTab="about" />
       <Container
         style={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: "100vh",
+          minHeight: "80vh",
+          width: "100vw",
         }}
       >
-        <Paper
-          elevation={3}
-          style={{
-            padding: 24,
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            color: "#ffffff",
-            width: "80%",
-          }}
-        >
+        <Paper elevation={5} style={paperStyle}>
           <Typography variant="h1" component="div" gutterBottom>
             About Quantum Krypto
           </Typography>
           <Typography variant="body1" paragraph>
-            Quantum Krypto is a leading-edge platform that harnesses the
-            potential of blockchain technology to transform the landscape of
-            digital assets and NFTs (Non-Fungible Tokens).
+            Quantum Krypto is a cutting-edge platform leveraging blockchain
+            technology to revolutionize digital assets and NFTs (Non-Fungible
+            Tokens).
           </Typography>
           <Typography variant="body1" paragraph>
             Our mission is to create a seamless and secure environment,
@@ -59,18 +68,26 @@ const About = () => {
               <Typography variant="h2" component="div" gutterBottom>
                 Core Values
               </Typography>
-              <ul>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
                 <li>
-                  <Typography variant="body1">Innovation</Typography>
+                  <Box>
+                    <Typography variant="body1">Innovation</Typography>
+                  </Box>
                 </li>
                 <li>
-                  <Typography variant="body1">Transparency</Typography>
+                  <Box>
+                    <Typography variant="body1">Transparency</Typography>
+                  </Box>
                 </li>
                 <li>
-                  <Typography variant="body1">Community-driven</Typography>
+                  <Box>
+                    <Typography variant="body1">Community-driven</Typography>
+                  </Box>
                 </li>
                 <li>
-                  <Typography variant="body1">Excellence</Typography>
+                  <Box>
+                    <Typography variant="body1">Excellence</Typography>
+                  </Box>
                 </li>
                 {/* Add more values as needed */}
               </ul>
