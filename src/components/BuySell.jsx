@@ -52,7 +52,13 @@ export default function BuySell() {
         }}
       >
         {/* Card on the left side */}
-        <div style={{ flex: "1", marginRight: "10px", position: "relative" }}>
+        <div
+          style={{
+            flex: "1",
+            marginRight: "10px",
+            position: "relative",
+          }}
+        >
           <img
             src={cardData.image}
             alt={cardData.title}
@@ -66,10 +72,10 @@ export default function BuySell() {
             style={{
               position: "absolute",
               bottom: "3px",
-              left: "8px",
+              left: "14px",
               marginLeft: "23%",
               borderRadius: "10px",
-              width: "46%",
+              width: "47.5%",
               background: "rgba(0, 0, 0, 0.2)",
               padding: "10px",
               color: "white",

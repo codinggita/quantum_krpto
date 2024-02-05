@@ -12,8 +12,8 @@ import Portfolio from "./components/Portfolio";
 import QuantumForum from "./components/QuantumForum";
 import About from "./components/About";
 import BuySell from "./components/BuySell";
-// import CoinList from "./components/CoinList";
-// import CoinBoard from "./components/CoinBoard";
+import CoinList from "./components/CoinList";
+import CoinDetails from "./components/CoinDetails";
 
 function App() {
   const appStyle = {
@@ -33,8 +33,8 @@ function App() {
           <Route path="/quantum-forum" element={<QuantumForum />} />
           <Route path="/about" element={<About />} />
           <Route path="/buy-sell/:cardId" element={<BuySell />} />
-          {/* <Route path="/coin-list" element={<CoinList />} />
-          <Route path="/coin-board" element={<CoinBoard />} /> */}
+          <Route path="/coin-list" element={<CoinList />} />
+          <Route path="/coin-details/:id" element={<CoinDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<Error404 />} />

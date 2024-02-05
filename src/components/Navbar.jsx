@@ -104,6 +104,11 @@ const Navbar = ({ activeTab }) => {
             style={activeTab === "nft-bazaar" ? activeTabStyle : tabStyle}
           />
           <Tab
+            value="coin-list"
+            label="Coin List"
+            style={activeTab === "coin-list" ? activeTabStyle : tabStyle}
+          />
+          <Tab
             value="portfolio"
             label="Portfolio"
             style={activeTab === "portfolio" ? activeTabStyle : tabStyle}
