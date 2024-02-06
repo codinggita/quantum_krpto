@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import {
   Grid,
   Card,
@@ -55,7 +56,7 @@ const CoinList = () => {
   );
 
   return (
-    <>
+    <div style={{ overflow: "hidden" }}>
       <Navbar activeTab="coin-list" />
       <TextField
         label="Search Crypto"
@@ -67,9 +68,14 @@ const CoinList = () => {
         sx={{
           backgroundColor: "white",
           border: "10px solid white",
+          width: "97vw",
         }}
       />
-      <Grid container spacing={2} style={{ marginTop: "2vh" }}>
+      <Grid
+        container
+        spacing={2}
+        style={{ marginTop: "2vh", marginBottom: "8vh", padding: "10px" }}
+      >
         {filteredCoins.map((coin) => (
           <Grid item key={coin.id} xs={12} sm={6} md={3}>
             <Card
@@ -110,7 +116,8 @@ const CoinList = () => {
           </Grid>
         ))}
       </Grid>
-    </>
+      <Footer />
+    </div>
   );
 };
 

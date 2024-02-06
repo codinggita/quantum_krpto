@@ -18,9 +18,9 @@ export default function BuySell() {
     alert(`Buy ${quantity} units of ${cardData.title}`);
   };
 
-  const handleSell = () => {
-    alert(`Sell ${quantity} units of ${cardData.title}`);
-  };
+  // const handleSell = () => {
+  //   alert(`Sell ${quantity} units of ${cardData.title}`);
+  // };
 
   useEffect(() => {
     const fetchCardDetails = async () => {
@@ -113,10 +113,24 @@ export default function BuySell() {
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
                   <Typography variant="h6" style={{ color: "white" }}>
-                    24h Volume: {cardData.volume}
+                    Volume: {cardData.volume}
                   </Typography>
                   <Typography variant="h6" style={{ color: "white" }}>
                     Price: {cardData.price}
+                  </Typography>
+                </div>
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <Typography variant="h6" style={{ color: "white" }}>
+                    USD:{" "}
+                    {parseInt(cardData.usd).toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </Typography>
+                  <Typography variant="h6" style={{ color: "white" }}>
+                    Currecny: {cardData.currency}
                   </Typography>
                 </div>
 

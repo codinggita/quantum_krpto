@@ -14,12 +14,14 @@ import About from "./components/About";
 import BuySell from "./components/BuySell";
 import CoinList from "./components/CoinList";
 import CoinDetails from "./components/CoinDetails";
+import ForumChat from "./components/ForumChat";
 
 function App() {
   const appStyle = {
     // backgroundColor: "#090419",
     backgroundImage:
-      "url(https://drive.google.com/file/d/1BctxzKxoEWCL7CZ3P8dC1YljQHYb2Jmb/view?usp=sharing)",
+      "url(https://github.com/SCORLEOs773/quantum_krypto/blob/main/src/assets/QK%20bg.png?raw=true)",
+    backgroundSize: "cover",
     minHeight: "100vh",
   };
 
@@ -33,6 +35,7 @@ function App() {
           <Route path="/bit-buzz" element={<BitBuzz />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/quantum-forum" element={<QuantumForum />} />
+          <Route path="/quantum-forum/:id" element={<ForumChat />} />
           <Route path="/about" element={<About />} />
           <Route path="/buy-sell/:cardId" element={<BuySell />} />
           <Route path="/coin-list" element={<CoinList />} />

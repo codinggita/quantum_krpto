@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { styled } from "@mui/system";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -66,10 +67,38 @@ const Footer = () => {
               Krypto
             </Typography>
             <ul style={{ listStyle: "none", padding: 0 }}>
-              <li>Home</li>
-              <li>About</li>
-              <li>Buy NFTs</li>
-              <li>Sell NFTs</li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/quantum-hub"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/about"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/coin-list"
+                >
+                  Coin List
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/bit-buzz"
+                >
+                  Bit Buzz
+                </Link>
+              </li>
             </ul>
           </Grid>
 
@@ -79,9 +108,38 @@ const Footer = () => {
               Market
             </Typography>
             <ul style={{ listStyle: "none", padding: 0 }}>
-              <li>Browse NFTs</li>
-              <li>Buy NFTs</li>
-              <li>Sell NFTs</li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/portfolio"
+                >
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/nft-bazaar"
+                >
+                  Browse NFTs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/nft-bazaar"
+                >
+                  Buy NFTs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="/nft-bazaar"
+                >
+                  Sell NFTs
+                </Link>
+              </li>
             </ul>
           </Grid>
 
@@ -91,8 +149,23 @@ const Footer = () => {
               Contact
             </Typography>
             <ul style={{ listStyle: "none", padding: 0 }}>
-              <li>Email</li>
-              <li>LinkedIn</li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="mailto:sukhadsharma075@gmail.com"
+                >
+                  Email
+                </Link>
+              </li>
+              <li>
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="https://www.linkedin.com/in/sukhadsharma/"
+                  target="#"
+                >
+                  LinkedIn
+                </Link>
+              </li>
               <li>Instagram</li>
               <li>Twitter</li>
             </ul>
@@ -130,6 +203,9 @@ const Footer = () => {
                 Submit
               </button>
             </form>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              <li>© A Sukhad Sharma Production</li>
+            </ul>
           </Grid>
         </Grid>
       </Container>
