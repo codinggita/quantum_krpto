@@ -17,7 +17,9 @@ import CoinDetails from "./components/CoinDetails";
 
 function App() {
   const appStyle = {
-    backgroundColor: "#090419",
+    // backgroundColor: "#090419",
+    backgroundImage:
+      "url(https://drive.google.com/file/d/1BctxzKxoEWCL7CZ3P8dC1YljQHYb2Jmb/view?usp=sharing)",
     minHeight: "100vh",
   };
 
