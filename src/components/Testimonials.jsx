@@ -2,6 +2,13 @@ import React from "react";
 import "./Testimonials.css";
 
 const Testimonials = () => {
+  const avatarImage = {
+    backgroundImage:
+      "url(https://pics.craiyon.com/2023-06-04/50f169348eb24ce0919dba8133c08ddc.webp)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+
   return (
     <div className="testimonial-container">
       <div className="testimonial-header">
@@ -12,7 +19,7 @@ const Testimonials = () => {
       </div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div className="testimonial-card">
-          <div className="testimonial-avatar"></div>
+          <div className="testimonial-avatar" style={avatarImage}></div>
           <div className="testimonial-content">
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
@@ -25,7 +32,7 @@ const Testimonials = () => {
         </div>
 
         <div className="testimonial-card">
-          <div className="testimonial-avatar"></div>
+          <div className="testimonial-avatar" style={avatarImage}></div>
           <div className="testimonial-content">
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
@@ -38,7 +45,7 @@ const Testimonials = () => {
         </div>
 
         <div className="testimonial-card">
-          <div className="testimonial-avatar"></div>
+          <div className="testimonial-avatar" style={avatarImage}></div>
           <div className="testimonial-content">
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">
@@ -51,7 +58,7 @@ const Testimonials = () => {
         </div>
 
         <div className="testimonial-card">
-          <div className="testimonial-avatar"></div>
+          <div className="testimonial-avatar" style={avatarImage}></div>
           <div className="testimonial-content">
             <div className="testimonial-name">John Doe</div>
             <div className="testimonial-description">

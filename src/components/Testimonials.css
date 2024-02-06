@@ -44,8 +44,6 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: url("https://pics.craiyon.com/2023-06-04/50f169348eb24ce0919dba8133c08ddc.webp")
-    center/cover;
   position: absolute;
   top: -65px;
 }

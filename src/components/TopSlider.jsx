@@ -8,52 +8,70 @@ export default function TopSlider() {
   // Sample data for the carousel
   const carouselData = [
     {
-      title: "Card 1",
+      title: "Squiggly",
       image:
         "https://img.freepik.com/free-vector/hand-drawn-nft-style-ape-illustration_23-2149622021.jpg?size=626&ext=jpg&ga=GA1.1.1572821029.1705490003&semt=sph",
-      price: "0.09 ETH",
-      description: "Description for Card 1",
-      volume: "10 ETH",
+      price: "50.0",
+      currency: "ETH",
+      usd: "11539888",
+      description:
+        "Randomly generated and fully on-chain squiggly lines, the first project in the Atlantes series. Only 100 pieces were created during the minting process.  The on-chain generator has now been shut off forever so they are only available in the secondary market. Project was launched in October 2020.\r\n\r\nCurve type refers to the type of bezier curve used in the on chain algorithm. All curve types had an equal probability of being created.\r\nAny auctoineer who called the end auction function for a given auction was credited as the creator of that Squiggly as they generated the seed to create the art for the auction winner and new owner.\r\n\r\ncreated by natealex",
+      volume: "100",
     },
     {
-      title: "Card 2",
+      title: "Voxelglyph",
       image:
         "https://img.freepik.com/free-photo/cartoon-character-with-yellow-jacket-sunglasses_71767-101.jpg?size=626&ext=jpg&ga=GA1.1.1572821029.1705490003&semt=sph",
-      price: "0.1 ETH",
-      description: "Description for Card 1",
-      volume: "10 ETH",
+      price: "41.0",
+      currency: "ETH",
+      usd: "21335878",
+      description:
+        "Randomly generated and fully on-chain squiggly lines, the first project in the Atlantes series. Only 100 pieces were created during the minting process.  The on-chain generator has now been shut off forever so they are only available in the secondary market. Project was launched in October 2020.\r\n\r\nCurve type refers to the type of bezier curve used in the on chain algorithm. All curve types had an equal probability of being created.\r\nAny auctoineer who called the end auction function for a given auction was credited as the creator of that Squiggly as they generated the seed to create the art for the auction winner and new owner.\r\n\r\ncreated by natealex",
+      volume: "80",
     },
     {
-      title: "Card 3",
+      title: "Lamponor",
       image:
         "https://img.freepik.com/free-photo/cartoon-man-wearing-vr-glasses_23-2151136773.jpg?size=626&ext=jpg&ga=GA1.1.1572821029.1705490003&semt=sph",
-      price: "0.08 ETH",
-      description: "Description for Card 1",
-      volume: "10 ETH",
+      price: "24.0",
+      currency: "ETH",
+      usd: "5132936",
+      description:
+        "Randomly generated and fully on-chain squiggly lines, the first project in the Atlantes series. Only 100 pieces were created during the minting process.  The on-chain generator has now been shut off forever so they are only available in the secondary market. Project was launched in October 2020.\r\n\r\nCurve type refers to the type of bezier curve used in the on chain algorithm. All curve types had an equal probability of being created.\r\nAny auctoineer who called the end auction function for a given auction was credited as the creator of that Squiggly as they generated the seed to create the art for the auction winner and new owner.\r\n\r\ncreated by natealex",
+      volume: "200",
     },
     {
-      title: "Card 4",
+      title: "Deckon Xcess",
       image:
         "https://img.freepik.com/free-photo/cartoon-character-with-handbag-sunglasses_71767-99.jpg?size=626&ext=jpg&ga=GA1.1.1572821029.1705490003&semt=sph",
-      price: "0.09 ETH",
-      description: "Description for Card 1",
-      volume: "10 ETH",
+      price: "70.0",
+      currency: "ETH",
+      usd: "31512834",
+      description:
+        "Randomly generated and fully on-chain squiggly lines, the first project in the Atlantes series. Only 100 pieces were created during the minting process.  The on-chain generator has now been shut off forever so they are only available in the secondary market. Project was launched in October 2020.\r\n\r\nCurve type refers to the type of bezier curve used in the on chain algorithm. All curve types had an equal probability of being created.\r\nAny auctoineer who called the end auction function for a given auction was credited as the creator of that Squiggly as they generated the seed to create the art for the auction winner and new owner.\r\n\r\ncreated by natealex",
+      volume: "40",
     },
     {
-      title: "Card 5",
+      title: "Finister",
       image:
         "https://img.freepik.com/free-photo/ai-generated-concept-human_23-2150688371.jpg?size=626&ext=jpg&ga=GA1.1.1572821029.1705490003&semt=sph",
-      price: "0.1 ETH",
-      description: "Description for Card 1",
-      volume: "10 ETH",
+      price: "20.0",
+      currency: "ETH",
+      usd: "419582",
+      description:
+        "Randomly generated and fully on-chain squiggly lines, the first project in the Atlantes series. Only 100 pieces were created during the minting process.  The on-chain generator has now been shut off forever so they are only available in the secondary market. Project was launched in October 2020.\r\n\r\nCurve type refers to the type of bezier curve used in the on chain algorithm. All curve types had an equal probability of being created.\r\nAny auctoineer who called the end auction function for a given auction was credited as the creator of that Squiggly as they generated the seed to create the art for the auction winner and new owner.\r\n\r\ncreated by natealex",
+      volume: "150",
     },
     {
-      title: "Card 6",
+      title: "Flexion Fist",
       image:
         "https://img.freepik.com/free-vector/abstract-flat-design-background_23-2148450082.jpg?size=626&ext=jpg&ga=GA1.1.1572821029.1705490003&semt=sph",
-      price: "0.08 ETH",
-      description: "Description for Card 1",
-      volume: "10 ETH",
+      price: "80.0",
+      currency: "ETH",
+      usd: "91729826",
+      description:
+        "Randomly generated and fully on-chain squiggly lines, the first project in the Atlantes series. Only 100 pieces were created during the minting process.  The on-chain generator has now been shut off forever so they are only available in the secondary market. Project was launched in October 2020.\r\n\r\nCurve type refers to the type of bezier curve used in the on chain algorithm. All curve types had an equal probability of being created.\r\nAny auctoineer who called the end auction function for a given auction was credited as the creator of that Squiggly as they generated the seed to create the art for the auction winner and new owner.\r\n\r\ncreated by natealex",
+      volume: "10",
     },
     // Add more cards as needed
   ];
