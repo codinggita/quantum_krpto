@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { useParams } from "react-router-dom";
@@ -18,80 +17,41 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
 const ForumChat = () => {
   const { id } = useParams();
-  console.log("Extracted id:", id);
   const topicId = parseInt(id);
 
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([
+    { id: 1, user: "User1", text: "Comment 1", upvotes: 5, downvotes: 2 },
+    { id: 2, user: "User2", text: "Comment 2", upvotes: 8, downvotes: 1 },
+    // Add more comments as needed
+  ]);
 
-  useEffect(() => {
-    console.log("Current topicId:", topicId);
+  const handleUpvote = (commentId) => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === commentId
+        ? { ...comment, upvotes: comment.upvotes + 1 }
+        : comment
+    );
+    setComments(updatedComments);
+  };
 
-    const fetchComments = async () => {
-      try {
-        const response = await axios.get(`/api/comments/${topicId}`);
-        setComments(response.data);
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-      }
+  const handleDownvote = (commentId) => {
+    const updatedComments = comments.map((comment) =>
+      comment.id === commentId
+        ? { ...comment, downvotes: comment.downvotes + 1 }
+        : comment
+    );
+    setComments(updatedComments);
+  };
+
+  const handleAddComment = (newCommentText) => {
+    const newComment = {
+      id: comments.length + 1,
+      user: "NewUser", // You can replace this with the actual username
+      text: newCommentText,
+      upvotes: 0,
+      downvotes: 0,
     };
-
-    fetchComments();
-  }, [topicId]);
-
-  const handleUpvote = async (commentId) => {
-    try {
-      await axios.put(`/api/comments/${commentId}/upvote`);
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === commentId
-            ? { ...comment, upvotes: comment.upvotes + 1 }
-            : comment
-        )
-      );
-    } catch (error) {
-      console.error("Error upvoting comment:", error);
-    }
-  };
-
-  const handleDownvote = async (commentId) => {
-    try {
-      await axios.put(`/api/comments/${commentId}/downvote`);
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === commentId
-            ? { ...comment, downvotes: comment.downvotes + 1 }
-            : comment
-        )
-      );
-    } catch (error) {
-      console.error("Error downvoting comment:", error);
-    }
-  };
-
-  const handleAddComment = async (newCommentText) => {
-    try {
-      const response = await axios.post(`/api/comments/${topicId}`, {
-        user: "NewUser", // Replace with the actual username
-        text: newCommentText,
-        upvotes: 0,
-        downvotes: 0,
-      });
-
-      setComments((prevComments) => [...prevComments, response.data]);
-    } catch (error) {
-      console.error("Error adding comment:", error);
-    }
-  };
-
-  const handleDeleteComment = async (commentId) => {
-    try {
-      await axios.delete(`/api/comments/${commentId}`);
-      setComments((prevComments) =>
-        prevComments.filter((comment) => comment.id !== commentId)
-      );
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-    }
+    setComments([...comments, newComment]);
   };
 
   return (
@@ -103,7 +63,7 @@ const ForumChat = () => {
           width: "92vw",
           height: "70vh",
           backgroundColor: "#333",
-          marginBottom: "15%",
+          marginBottom: "15vh",
           marginTop: "6vh",
           marginLeft: "2vw",
         }}
@@ -138,12 +98,6 @@ const ForumChat = () => {
                   >
                     <ThumbDownIcon />
                     {comment.downvotes}
-                  </IconButton>
-                  <IconButton
-                    onClick={() => handleDeleteComment(comment.id)}
-                    color="secondary"
-                  >
-                    Delete
                   </IconButton>
                 </div>
               </div>
