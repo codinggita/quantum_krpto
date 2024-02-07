@@ -82,7 +82,7 @@ const QuantumForum = () => {
                   <TableCell style={{ color: "white" }}>{index + 1}</TableCell>
                   <TableCell>
                     <Link
-                      to={`/quantum-forum/${topic.title}`}
+                      to={`/quantum-forum/${topic.id}`}
                       style={{ color: "white", textDecoration: "none" }}
                     >
                       {topic.title}
