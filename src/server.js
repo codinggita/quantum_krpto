@@ -26,6 +26,7 @@ mongoose
 
 // Define a MongoDB schema for comments
 const commentSchema = new mongoose.Schema({
+  commentId: mongoose.Schema.Types.ObjectId,
   user: String,
   text: String,
   upvotes: Number,
@@ -58,6 +59,7 @@ app.post("/api/comments/:topicId", async (req, res) => {
   const { user, text, upvotes, downvotes } = req.body;
 
   const newComment = new Comment({
+    commentId: new mongoose.Types.ObjectId(),
     user,
     text,
     upvotes,
@@ -82,7 +84,7 @@ app.put("/api/comments/:commentId/upvote", async (req, res) => {
   try {
     const updatedComment = await Comment.findByIdAndUpdate(
       commentId,
-      { $inc: { upvotes: 1 } },
+      { $inc: { upvotes: 1 } }, // Use $inc to increment upvotes
       { new: true }
     );
     res.json(updatedComment);
@@ -99,7 +101,7 @@ app.put("/api/comments/:commentId/downvote", async (req, res) => {
   try {
     const updatedComment = await Comment.findByIdAndUpdate(
       commentId,
-      { $inc: { downvotes: 1 } },
+      { $inc: { downvotes: 1 } }, // Use $inc to increment downvotes
       { new: true }
     );
     res.json(updatedComment);
@@ -112,14 +114,19 @@ app.put("/api/comments/:commentId/downvote", async (req, res) => {
 // DELETE endpoint to delete a comment
 app.delete("/api/comments/:commentId", async (req, res) => {
   const commentId = req.params.commentId;
-
-  // Check if the commentId is a valid ObjectId
-  if (!mongoose.Types.ObjectId.isValid(commentId)) {
-    return res.status(400).json({ error: "Invalid commentId format" });
-  }
+  console.log("Received DELETE request for commentId:", commentId);
 
   try {
-    await Comment.findByIdAndDelete(commentId);
+    const deletedComment = await Comment.findOneAndDelete({
+      commentId: commentId,
+    });
+
+    if (!deletedComment) {
+      console.error("Comment not found");
+      return res.status(404).json({ error: "Comment not found" });
+    }
+
+    console.log("Comment deleted:", deletedComment);
     res.json({ message: "Comment deleted successfully" });
   } catch (error) {
     console.error("Error deleting comment:", error);

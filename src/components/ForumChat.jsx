@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Snackbar from "@mui/material/Snackbar";
 import { useParams } from "react-router-dom";
 import {
   Paper,
@@ -18,14 +21,17 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
 const ForumChat = () => {
   const { id } = useParams();
-  console.log("Extracted id:", id);
   const topicId = parseInt(id);
 
   const [comments, setComments] = useState([]);
+  const [votedComments, setVotedComments] = useState([]);
+  const [alert, setAlert] = useState({
+    open: false,
+    message: "",
+    severity: "",
+  });
 
   useEffect(() => {
-    console.log("Current topicId:", topicId);
-
     const fetchComments = async () => {
       try {
         const response = await axios.get(`/api/comments/${topicId}`);
@@ -39,33 +45,61 @@ const ForumChat = () => {
   }, [topicId]);
 
   const handleUpvote = async (commentId) => {
-    try {
-      await axios.put(`/api/comments/${commentId}/upvote`);
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === commentId
-            ? { ...comment, upvotes: comment.upvotes + 1 }
-            : comment
-        )
-      );
-    } catch (error) {
-      console.error("Error upvoting comment:", error);
+    if (!votedComments.includes(commentId)) {
+      try {
+        await axios.put(`/api/comments/${commentId}/upvote`);
+        setComments((prevComments) =>
+          prevComments.map((comment) =>
+            comment.commentId === commentId
+              ? { ...comment, upvotes: comment.upvotes + 1 }
+              : comment
+          )
+        );
+        setVotedComments((prevVotedComments) => [
+          ...prevVotedComments,
+          commentId,
+        ]);
+      } catch (error) {
+        console.error("Error upvoting comment:", error);
+      }
+    } else {
+      console.log("User already voted for this comment");
+      // Optionally, you can provide user feedback here
     }
+    setAlert({
+      open: true,
+      message: "Upvoted successfully!",
+      severity: "success",
+    });
   };
 
   const handleDownvote = async (commentId) => {
-    try {
-      await axios.put(`/api/comments/${commentId}/downvote`);
-      setComments((prevComments) =>
-        prevComments.map((comment) =>
-          comment.id === commentId
-            ? { ...comment, downvotes: comment.downvotes + 1 }
-            : comment
-        )
-      );
-    } catch (error) {
-      console.error("Error downvoting comment:", error);
+    if (!votedComments.includes(commentId)) {
+      try {
+        await axios.put(`/api/comments/${commentId}/downvote`);
+        setComments((prevComments) =>
+          prevComments.map((comment) =>
+            comment.commentId === commentId
+              ? { ...comment, downvotes: comment.downvotes + 1 }
+              : comment
+          )
+        );
+        setVotedComments((prevVotedComments) => [
+          ...prevVotedComments,
+          commentId,
+        ]);
+      } catch (error) {
+        console.error("Error downvoting comment:", error);
+      }
+    } else {
+      console.log("User already voted for this comment");
+      // Optionally, you can provide user feedback here
     }
+    setAlert({
+      open: true,
+      message: "Downvoted successfully!",
+      severity: "success",
+    });
   };
 
   const handleAddComment = async (newCommentText) => {
@@ -81,22 +115,49 @@ const ForumChat = () => {
     } catch (error) {
       console.error("Error adding comment:", error);
     }
+    setAlert({
+      open: true,
+      message: "Comment posted successfully!",
+      severity: "success",
+    });
   };
 
   const handleDeleteComment = async (commentId) => {
     try {
       await axios.delete(`/api/comments/${commentId}`);
       setComments((prevComments) =>
-        prevComments.filter((comment) => comment.id !== commentId)
+        prevComments.filter((comment) => comment.commentId !== commentId)
       );
     } catch (error) {
-      console.error("Error deleting comment:", error);
+      console.error("Error deleting comment:", error.message);
     }
+    setAlert({
+      open: true,
+      message: "Comment deleted successfully!",
+      severity: "success",
+    });
+  };
+
+  const handleCloseAlert = () => {
+    setAlert({ open: false, message: "", severity: "" });
   };
 
   return (
     <>
       <Navbar activeTab="quantum-forum" />
+      <Snackbar
+        open={alert.open}
+        autoHideDuration={6000}
+        onClose={handleCloseAlert}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert onClose={handleCloseAlert} severity={alert.severity}>
+          <AlertTitle>
+            {alert.severity === "success" ? "Success" : "Error"}
+          </AlertTitle>
+          {alert.message}
+        </Alert>
+      </Snackbar>
       <div
         style={{
           padding: "20px",
@@ -118,7 +179,7 @@ const ForumChat = () => {
         <Paper elevation={3} style={{ padding: "20px", marginBottom: "20px" }}>
           <div>
             {comments.map((comment) => (
-              <div key={comment.id} style={{ marginBottom: "10px" }}>
+              <div key={comment.commentId} style={{ marginBottom: "10px" }}>
                 <Avatar style={{ marginRight: "10px" }}>U</Avatar>
                 <div>
                   <Typography variant="subtitle1">{comment.user}</Typography>
@@ -126,21 +187,27 @@ const ForumChat = () => {
                     {comment.text}
                   </Typography>
                   <IconButton
-                    onClick={() => handleUpvote(comment.id)}
+                    onClick={() => handleUpvote(comment.commentId)}
                     color="primary"
                   >
                     <ThumbUpIcon />
                     {comment.upvotes}
                   </IconButton>
                   <IconButton
-                    onClick={() => handleDownvote(comment.id)}
+                    onClick={() => handleDownvote(comment.commentId)}
                     color="secondary"
                   >
                     <ThumbDownIcon />
                     {comment.downvotes}
                   </IconButton>
                   <IconButton
-                    onClick={() => handleDeleteComment(comment.id)}
+                    onClick={() => {
+                      console.log(
+                        "Deleting comment with id:",
+                        comment.commentId
+                      );
+                      handleDeleteComment(comment.commentId);
+                    }}
                     color="secondary"
                   >
                     Delete
@@ -178,6 +245,9 @@ const ForumChat = () => {
           </form>
         </Paper>
       </div>
+      <br />
+      <br />
+      <br />
       <Footer />
     </>
   );

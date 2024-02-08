@@ -15,8 +15,36 @@ import {
 const QuantumForum = () => {
   // Replace this data with your actual forum topics
   const forumTopics = [
-    { id: 1, title: "Topic 1", author: "User1" },
-    { id: 2, title: "Topic 2", author: "User2" },
+    {
+      id: 1,
+      title: "Understanding Bitcoin Basics",
+      author: "Satoshi Nakamoto",
+    },
+    {
+      id: 2,
+      title: "Ethereum: The Smart Contract Platform",
+      author: "Vitalik Buterin",
+    },
+    {
+      id: 3,
+      title: "Crypto Investment Strategies",
+      author: "Alice CryptoTrader",
+    },
+    {
+      id: 4,
+      title: "Rise of Decentralized Finance (DeFi)",
+      author: "Charlie Chain",
+    },
+    {
+      id: 5,
+      title: "Navigating the Altcoin Market",
+      author: "Ava CryptoExplorer",
+    },
+    {
+      id: 6,
+      title: "Blockchain Technology Revolution",
+      author: "David Ledger",
+    },
     // Add more topics as needed
   ];
 
@@ -83,12 +111,16 @@ const QuantumForum = () => {
                   <TableCell>
                     <Link
                       to={`/quantum-forum/${topic.id}`}
-                      style={{ color: "white", textDecoration: "none" }}
+                      style={{
+                        textDecoration: "none",
+                        fontSize: "24px",
+                        color: "violet",
+                      }}
                     >
                       {topic.title}
                     </Link>
                   </TableCell>
-                  <TableCell style={{ color: "white" }}>
+                  <TableCell style={{ color: "crimson", fontSize: "18px" }}>
                     {topic.author}
                   </TableCell>
                 </TableRow>
