@@ -5,20 +5,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ activeTab }) => {
+const Navbar = ({ activeTab, title, customStyle }) => {
   const rainbowGradient =
     "linear-gradient(45deg, #FF0000, #FF9900, #FFFF00, #00FF00, #0000FF, #9900FF)";
 
-  const [heading, setHeading] = useState("QUANTUM KRYPTO");
-
-  const navbarStyle = {
-    width: "100%",
-    background: "transparent",
-    zIndex: 1000,
-    paddingTop: "10px",
-  };
-
-  const headingStyle = {
+  const [heading, setHeading] = useState(title || "QuantumKrypto");
+  const [headingStyle, setHeadingStyle] = useState({
+    display: "inline-block", // Ensure background spans only the text
     background: rainbowGradient,
     WebkitBackgroundClip: "text",
     color: "transparent",
@@ -27,6 +20,14 @@ const Navbar = ({ activeTab }) => {
     margin: 0,
     marginBottom: "8px",
     marginLeft: "100px",
+    ...customStyle, // Apply custom style
+  });
+
+  const navbarStyle = {
+    width: "100%",
+    background: "transparent",
+    zIndex: 1000,
+    paddingTop: "10px",
   };
 
   const buttonStyle = {
@@ -60,19 +61,16 @@ const Navbar = ({ activeTab }) => {
   };
 
   useEffect(() => {
-    // Update heading when activeTab changes
-    switch (activeTab) {
-      case "quantum-hub":
-        setHeading("QUANTUM KRYPTO");
-        break;
-      case "quantum-prime":
-        setHeading("QuantumPrime");
-        break;
-      // Add more cases for other pages as needed
-      default:
-        setHeading("QUANTUM KRYPTO");
-    }
-  }, [activeTab]);
+    // Update heading and headingStyle based on the title prop
+    setHeading(title || "QuantumKrypto");
+
+    // Example: Update headingStyle dynamically based on the title
+    setHeadingStyle((prevStyle) => ({
+      ...prevStyle,
+      // Apply custom style
+      ...customStyle,
+    }));
+  }, [title, customStyle]);
 
   return (
     <div>
