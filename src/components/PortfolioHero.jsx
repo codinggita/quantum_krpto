@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import PortfolioPic from "../assets/Portfolio Pic.png";
+import { useNavigate } from "react-router-dom";
 
 const PortfolioHero = () => {
   const containerStyle = {
@@ -50,6 +51,12 @@ const PortfolioHero = () => {
     marginRight: "15vw",
   };
 
+  const navigate = useNavigate();
+
+  const handleViewPlans = () => {
+    navigate("/portfolio");
+  };
+
   return (
     <div style={containerStyle}>
       <div style={imageStyle}>
@@ -65,7 +72,11 @@ const PortfolioHero = () => {
           <br />
           optimize the value of your Quantum Krypto portfolio effortlessly.
         </div>
-        <Button variant="contained" style={buttonStyle}>
+        <Button
+          onClick={handleViewPlans}
+          variant="contained"
+          style={buttonStyle}
+        >
           View Plans
         </Button>
       </div>

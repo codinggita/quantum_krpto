@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 const Navbar = ({ activeTab }) => {
   const rainbowGradient =
     "linear-gradient(45deg, #FF0000, #FF9900, #FFFF00, #00FF00, #0000FF, #9900FF)";
+
+  const [heading, setHeading] = useState("QUANTUM KRYPTO");
 
   const navbarStyle = {
     width: "100%",
@@ -57,6 +59,21 @@ const Navbar = ({ activeTab }) => {
     navigate("/signup");
   };
 
+  useEffect(() => {
+    // Update heading when activeTab changes
+    switch (activeTab) {
+      case "quantum-hub":
+        setHeading("QUANTUM KRYPTO");
+        break;
+      case "quantum-prime":
+        setHeading("QuantumPrime");
+        break;
+      // Add more cases for other pages as needed
+      default:
+        setHeading("QUANTUM KRYPTO");
+    }
+  }, [activeTab]);
+
   return (
     <div>
       <Box sx={{ ...navbarStyle }}>
@@ -67,7 +84,7 @@ const Navbar = ({ activeTab }) => {
             alignItems: "center",
           }}
         >
-          <h1 style={headingStyle}>QUANTUM KRYPTO</h1>
+          <h1 style={headingStyle}>{heading}</h1>
           <div style={{ marginRight: "6vw" }}>
             <Button
               color="secondary"

@@ -1,5 +1,6 @@
 import React from "react";
 import gifImage from "../assets/NFT gif.gif";
+import { useNavigate } from "react-router-dom";
 
 const NFTHero = () => {
   const containerStyle = {
@@ -54,6 +55,16 @@ const NFTHero = () => {
     outline: "none",
   };
 
+  const navigate = useNavigate();
+
+  const handleExploreNow = () => {
+    navigate("/nft-bazaar");
+  };
+
+  const handleRareFinds = () => {
+    navigate("/nft-bazaar");
+  };
+
   return (
     <div style={containerStyle}>
       <div style={leftContentStyle}>
@@ -69,8 +80,14 @@ const NFTHero = () => {
           <br />
           selling unique crypto assets.
         </p>
-        <button style={exploreNowButtonStyle}>Explore Now</button>
-        <button style={rareFindsButtonStyle} variant="outlined">
+        <button onClick={handleExploreNow} style={exploreNowButtonStyle}>
+          Explore Now
+        </button>
+        <button
+          onClick={handleRareFinds}
+          style={rareFindsButtonStyle}
+          variant="outlined"
+        >
           Rare Finds
         </button>
       </div>
