@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import QuantumHub from "./components/QuantumHub";
+import QuantumPrime from "./components/QuantumPrime";
 import Error404 from "./components/Error404";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Open />} />
           <Route path="/quantum-hub" element={<QuantumHub />} />
+          <Route path="/quantum-prime" element={<QuantumPrime />} />
           <Route path="/nft-bazaar" element={<NFTBazaar />} />
           <Route path="/bit-buzz" element={<BitBuzz />} />
           <Route path="/portfolio" element={<Portfolio />} />

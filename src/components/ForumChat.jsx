@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -30,6 +31,10 @@ const ForumChat = () => {
     message: "",
     severity: "",
   });
+
+  const location = useLocation();
+  const topicTitle = location.state?.topicTitle || "Quantum Krypto";
+  console.log(topicTitle);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -163,7 +168,7 @@ const ForumChat = () => {
           padding: "20px",
           width: "92vw",
           height: "70vh",
-          backgroundColor: "#333",
+          backgroundColor: "#637a96",
           marginBottom: "15%",
           marginTop: "6vh",
           marginLeft: "2vw",
@@ -174,18 +179,41 @@ const ForumChat = () => {
           gutterBottom
           style={{ color: "white", marginBottom: "20px" }}
         >
-          Forum Chat - Topic {topicId}
+          {topicTitle}
         </Typography>
         <Paper elevation={3} style={{ padding: "20px", marginBottom: "20px" }}>
           <div>
             {comments.map((comment) => (
-              <div key={comment.commentId} style={{ marginBottom: "10px" }}>
-                <Avatar style={{ marginRight: "10px" }}>U</Avatar>
-                <div>
-                  <Typography variant="subtitle1">{comment.user}</Typography>
+              <div
+                key={comment.commentId}
+                style={{ marginBottom: "10px", display: "flex" }}
+              >
+                <div style={{ marginRight: "10px" }}>
+                  <Avatar>S</Avatar>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flex: 1,
+                    textAlign: "left",
+                    margin: "15px",
+                  }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    style={{
+                      color: "brown",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {comment.user}
+                  </Typography>
                   <Typography style={{ textAlign: "left" }}>
                     {comment.text}
                   </Typography>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
                   <IconButton
                     onClick={() => handleUpvote(comment.commentId)}
                     color="primary"
@@ -201,14 +229,14 @@ const ForumChat = () => {
                     {comment.downvotes}
                   </IconButton>
                   <IconButton
-                    onClick={() => {
-                      console.log(
-                        "Deleting comment with id:",
-                        comment.commentId
-                      );
-                      handleDeleteComment(comment.commentId);
+                    onClick={() => handleDeleteComment(comment.commentId)}
+                    color="warning"
+                    style={{
+                      fontSize: "12px",
+                      fontWeight: "bold",
+                      border: "1px solid red",
+                      borderRadius: "0px",
                     }}
-                    color="secondary"
                   >
                     Delete
                   </IconButton>
@@ -239,6 +267,10 @@ const ForumChat = () => {
               variant="contained"
               endIcon={<SendIcon />}
               color="primary"
+              style={{
+                height: "7.4vh",
+                marginTop: "1vh",
+              }}
             >
               Send
             </Button>

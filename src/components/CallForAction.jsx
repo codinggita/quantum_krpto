@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 const CallForAction = () => {
   const containerStyle = {
@@ -43,6 +44,12 @@ const CallForAction = () => {
     fontSize: "16px",
   };
 
+  const navigate = useNavigate();
+
+  const handlePrime = () => {
+    navigate("/quantum-prime");
+  };
+
   return (
     <div style={containerStyle}>
       <div style={boxStyle}>
@@ -56,6 +63,7 @@ const CallForAction = () => {
           <span style={{ ...redTextStyle, fontSize: "70px" }}>BIG THING</span>
         </div>
         <Button
+        onClick={handlePrime}
           variant="contained"
           style={{
             backgroundColor: "#1f1f1f",
