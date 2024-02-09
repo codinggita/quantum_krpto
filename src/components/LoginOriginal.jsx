@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
@@ -6,11 +6,6 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { app } from "../firebase";
-
-const auth = getAuth(app);
 
 const CustomContainer = styled(Container)({
   display: "flex",
@@ -60,76 +55,51 @@ const CustomButton = styled(Button)({
   marginBottom: "10px",
 });
 
-const DividerWithBG = styled(Divider)({
-  backgroundColor: "#87CEEB",
-  margin: "20px 0",
-});
-
-const SignUp = () => {
+const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleSignUp = () => {
-    createUserWithEmailAndPassword(auth, email, password).then((value) =>
-      alert("Success")
-    );
+  const handleLogin = () => {
     navigate("/quantum-hub");
   };
 
-  const handleGoogleSignUp = () => {
-    // Handle Google signup logic
+  const handleGoogleLogin = () => {
+    // Handle Google login logic
   };
 
-  const handleAppleSignUp = () => {
-    // Handle Apple signup logic
+  const handleAppleLogin = () => {
+    // Handle Apple login logic
   };
 
   return (
     <CustomContainer>
       <CustomPaper>
-        <h1 style={{ color: "#000000" }}>Sign Up</h1>
+        <h1 style={{ color: "#000000" }}>Login</h1>
         <CustomTextField label="Username" variant="outlined" />
-        <CustomTextField
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          label="Email"
-          type="email"
-          variant="outlined"
-        />
-
-        <CustomTextField
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          label="Password"
-          type="password"
-          variant="outlined"
-        />
-        <CustomButton variant="contained" onClick={handleSignUp}>
-          Sign Up
+        <CustomTextField label="Password" type="password" variant="outlined" />
+        <CustomButton variant="contained" onClick={handleLogin}>
+          Login
         </CustomButton>
-        <DividerWithBG />
-        <p>or</p>
+        <Divider style={{ margin: "20px 0" }} />
         <CustomButton
           variant="outlined"
-          onClick={handleGoogleSignUp}
+          onClick={handleGoogleLogin}
           style={{ backgroundColor: "#4285F4", color: "#ffffff" }}
         >
-          Sign Up with Google
+          Login with Google
         </CustomButton>
         <CustomButton
           variant="outlined"
-          onClick={handleAppleSignUp}
+          onClick={handleAppleLogin}
           style={{ backgroundColor: "#000000", color: "#ffffff" }}
         >
-          Sign Up with Apple
+          Login with Apple
         </CustomButton>
       </CustomPaper>
-      <p style={{ marginTop: "10px", color: "white" }}>
-        Don't miss out on the crypto fun! 🚀
+      <p style={{ marginTop: "20px", color: "#FFFFFF" }}>
+        "Crypto is the key to unlock your digital fortress!"
       </p>
     </CustomContainer>
   );
 };
 
-export default SignUp;
+export default Login;
