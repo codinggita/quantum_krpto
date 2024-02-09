@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -23,7 +23,9 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 const ForumChat = () => {
   const { id } = useParams();
   const topicId = parseInt(id);
+  const navigate = useNavigate();
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [comments, setComments] = useState([]);
   const [votedComments, setVotedComments] = useState([]);
   const [alert, setAlert] = useState({
@@ -48,6 +50,12 @@ const ForumChat = () => {
 
     fetchComments();
   }, [topicId]);
+
+  useEffect(() => {
+    // Check login status when the component mounts
+    // You can replace this with actual logic to check if the user is logged in
+    setIsLoggedIn(/* Replace with your actual login check logic */ true);
+  }, []);
 
   const handleUpvote = async (commentId) => {
     if (!votedComments.includes(commentId)) {
@@ -108,6 +116,22 @@ const ForumChat = () => {
   };
 
   const handleAddComment = async (newCommentText) => {
+    // Check if the user is logged in
+    if (!isLoggedIn) {
+      // Show popup notifying the user to log in
+      setAlert({
+        open: true,
+        message: "Please log in to add a comment.",
+        severity: "error",
+      });
+
+      // Redirect to the login page
+      // You may need to adjust the route based on your project structure
+      navigate("/login");
+      return;
+    }
+
+    // If the user is logged in, proceed with adding the comment
     try {
       const response = await axios.post(`/api/comments/${topicId}`, {
         user: "NewUser", // Replace with the actual username
@@ -120,6 +144,7 @@ const ForumChat = () => {
     } catch (error) {
       console.error("Error adding comment:", error);
     }
+
     setAlert({
       open: true,
       message: "Comment posted successfully!",

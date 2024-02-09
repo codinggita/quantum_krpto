@@ -7,6 +7,13 @@ import Divider from "@mui/material/Divider";
 import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 
+// import { getDatabase, ref, set } from "firebase/database";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { app } from "../firebase";
+
+// const db = getDatabase(app);
+const auth = getAuth(app);
+
 const CustomContainer = styled(Container)({
   display: "flex",
   flexDirection: "column",
@@ -62,12 +69,20 @@ const Login = () => {
     navigate("/quantum-hub");
   };
 
-  const handleGoogleLogin = () => {
-    // Handle Google login logic
-  };
+  // const putData = () => {
+  //   set(ref(db, "users/sukhad"), {
+  //     id: 1,
+  //     name: "Sukhad Sharma",
+  //     age: 20,
+  //   });
+  // };
 
-  const handleAppleLogin = () => {
-    // Handle Apple login logic
+  const signupUser = () => {
+    createUserWithEmailAndPassword(
+      auth,
+      "mykeyman777@gmail.com",
+      "sukhad07"
+    ).then((value) => console.log(value));
   };
 
   return (
@@ -82,18 +97,18 @@ const Login = () => {
         <Divider style={{ margin: "20px 0" }} />
         <CustomButton
           variant="outlined"
-          onClick={handleGoogleLogin}
+          onClick={signupUser}
           style={{ backgroundColor: "#4285F4", color: "#ffffff" }}
         >
-          Login with Google
+          Signup/Login with Google
         </CustomButton>
-        <CustomButton
+        {/* <CustomButton
           variant="outlined"
           onClick={handleAppleLogin}
           style={{ backgroundColor: "#000000", color: "#ffffff" }}
         >
           Login with Apple
-        </CustomButton>
+        </CustomButton> */}
       </CustomPaper>
       <p style={{ marginTop: "20px", color: "#FFFFFF" }}>
         "Crypto is the key to unlock your digital fortress!"
