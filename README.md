@@ -1,10 +1,11 @@
-# Quantum Krypto Figma Design Report
+## Quantum Krypto
 
-## Project Overview
+## Project Links
 
-- **Project Name:** Quantum Krypto
-- **Designer:** Sukhad Sharma
-- **Date:** [Date of Design Completion]
+- **Frontend Deploy Link:** [https://quantumkrypto.netlify.app/]
+- **Backend Deploy Link:** [https://quantumkrypto.onrender.com]
+- **Figma Design Link:** [https://www.figma.com/file/ISmmr7NH96u0LDwixhmasO/QuantumKrypto?type=design&node-id=0%3A1&mode=design&t=IV37C63McGH2xWhD-1]
+- **API Documentation Link:** [https://documenter.getpostman.com/view/29752902/2s9YsT6oFd]
 
 ## Introduction
 
